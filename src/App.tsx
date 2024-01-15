@@ -1,13 +1,20 @@
+import { useState } from 'react'
 import Button from './components/ui/Button'
 import Container from './components/ui/Container'
+import Modal from './components/ui/Modal'
 
 function App() {
+  const [modal, setModal] = useState(false)
+
+  const handleModalClose = () => {
+    setModal((prev) => !prev)
+  }
+
   return (
     <Container>
       <div className='h-screen w-full flex justify-center items-center'>
-        <div className='w-96 border border-red-500 p-10'>
-          <Button variant='outline' />
-        </div>
+        <Button onClick={() => setModal((prev) => !prev)}>Open Modal</Button>
+        <Modal isOpen={modal} onClose={handleModalClose} />
       </div>
     </Container>
   )
