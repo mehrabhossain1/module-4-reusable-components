@@ -17,6 +17,7 @@ function App() {
           Open Modal
         </Button>
         <Modal isOpen={modal} onClose={handleModalClose}>
+          <Modal.CloseButton />
           <h1>This is a Modal</h1>
         </Modal>
       </div>

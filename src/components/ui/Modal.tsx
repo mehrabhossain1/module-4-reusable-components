@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { MouseEvent, useRef } from 'react'
 import cn from '../../utils/cn'
 import { createPortal } from 'react-dom'
 
@@ -6,8 +6,8 @@ const Modal = ({ isOpen, onClose, children }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   // বাইরে ক্লিক করলে মোডাল ক্লোজ
-  const handleOutsideClose = (e) => {
-    if (!containerRef.current?.contains(e.target)) {
+  const handleOutsideClose = (e: MouseEvent) => {
+    if (!containerRef.current?.contains(e.target as Node)) {
       onClose()
     }
   }
@@ -29,5 +29,11 @@ const Modal = ({ isOpen, onClose, children }) => {
     document.getElementById('portal') as Element
   )
 }
+
+const CloseButton = () => {
+  return <button onClick={}>Close Button</button>
+}
+
+Modal.CloseButton = CloseButton
 
 export default Modal
