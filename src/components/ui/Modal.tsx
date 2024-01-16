@@ -1,7 +1,17 @@
+import { useRef } from 'react'
 import cn from '../../utils/cn'
 import { createPortal } from 'react-dom'
 
 const Modal = ({ isOpen, onClose, children }) => {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  // বাইরে ক্লিক করলে মোডাল ক্লোজ
+  const handleOutsideClose = (e) => {
+    if (!containerRef.current?.contains(e.target)) {
+      onClose()
+    }
+  }
+
   return createPortal(
     <div
       className={cn(
@@ -10,8 +20,11 @@ const Modal = ({ isOpen, onClose, children }) => {
           visible: isOpen,
         }
       )}
+      onClick={handleOutsideClose}
     >
-      <div className='bg-white w-full max-w-sm rounded-md'>{children}</div>
+      <div ref={containerRef} className='bg-white w-full max-w-sm rounded-md'>
+        {children}
+      </div>
     </div>,
     document.getElementById('portal') as Element
   )
