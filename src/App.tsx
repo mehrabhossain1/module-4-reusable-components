@@ -10,11 +10,13 @@ function App() {
     setModal((prev) => !prev)
   }
 
+  // */ comment
   return (
     <Container>
       <div className='relative h-screen w-full flex justify-center items-center'>
         <Button className='z-10' onClick={() => setModal((prev) => !prev)}>
           Open Modal
+          {/* comment */}
         </Button>
         <Modal isOpen={modal} onClose={handleModalClose}>
           <h1>This is a Modal</h1>
