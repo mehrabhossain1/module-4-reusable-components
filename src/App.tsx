@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Button from "./components/ui/Button";
 import Container from "./components/ui/Container";
 import Modal from "./components/ui/Modal";
@@ -8,6 +8,14 @@ function App() {
 
   const handleModalClose = () => {
     setModal((prev) => !prev);
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log("clicked");
+    if (true) {
+      handleModalClose();
+    }
   };
 
   return (
@@ -25,9 +33,12 @@ function App() {
         >
           <Modal.Header>
             <h1>This is modal title</h1>
-            <Modal.CloseButton></Modal.CloseButton>
+            <Modal.CloseButton />
           </Modal.Header>
-          <p>This is a Modal content</p>
+          <form onSubmit={handleSubmit}>
+            <input type="text" />
+            <button type="submit">Submit</button>
+          </form>
         </Modal>
       </div>
     </Container>
