@@ -12,9 +12,13 @@ function App() {
 
   return (
     <Container>
-      <div className='h-screen w-full flex justify-center items-center'>
-        <Button onClick={() => setModal((prev) => !prev)}>Open Modal</Button>
-        <Modal isOpen={modal} onClose={handleModalClose} />
+      <div className='relative h-screen w-full flex justify-center items-center'>
+        <Button className='z-10' onClick={() => setModal((prev) => !prev)}>
+          Open Modal
+        </Button>
+        <Modal isOpen={modal} onClose={handleModalClose}>
+          <h1>This is a Modal</h1>
+        </Modal>
       </div>
     </Container>
   )
