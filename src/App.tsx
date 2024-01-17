@@ -1,23 +1,23 @@
-import { FormEvent, useState } from "react";
-import Button from "./components/ui/Button";
+import NormalForm from "./components/NormalForm/NormalForm";
 import Container from "./components/ui/Container";
-import Modal from "./components/ui/Modal";
 
 function App() {
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
 
-  const handleModalClose = () => {
-    setModal((prev) => !prev);
-  };
+  // const handleModalClose = () => {
+  //   setModal((prev) => !prev);
+  // };
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    console.log("clicked");
-  };
+  // const handleSubmit = (e: FormEvent) => {
+  //   e.preventDefault();
+  //   console.log("clicked");
+  // };
 
   return (
     <Container>
-      <div className="relative h-screen w-full flex justify-center items-center">
+      <NormalForm />
+
+      {/* <div className="relative h-screen w-full flex justify-center items-center">
         <Button
           className="z-10"
           onClick={() => setModal((prev) => !prev)}
@@ -37,7 +37,7 @@ function App() {
             <button type="submit">Submit</button>
           </form>
         </Modal>
-      </div>
+      </div> */}
     </Container>
   );
 }
