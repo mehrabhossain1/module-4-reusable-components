@@ -13,9 +13,6 @@ function App() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     console.log("clicked");
-    if (true) {
-      handleModalClose();
-    }
   };
 
   return (
