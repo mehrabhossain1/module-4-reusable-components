@@ -30,12 +30,7 @@ const NormalForm = () => {
           <label className="block" htmlFor="name">
             Name
           </label>
-          <input
-            className="w-full border border-gray-400 rounded-md focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
-            type="text"
-            id="name"
-            {...register('name')}
-          />
+          <input type="text" id="name" {...register('name')} />
         </div>
         <div className="w-full max-w-md">
           <label className="block" htmlFor="name">
@@ -59,13 +54,30 @@ const NormalForm = () => {
             {...register('name')}
           />
         </div>
+        <div className="w-full max-w-md">
+          <label className="block" htmlFor="name">
+            Password
+          </label>
+          <select>
+            <option>one</option>
+            <option>two</option>
+            <option>three</option>
+            <option>four</option>
+          </select>
+        </div>
+        <div className="w-full max-w-md">
+          <label className="block" htmlFor="name">
+            Password
+          </label>
+          <textarea></textarea>
+        </div>
+        <div className="w-full max-w-md">
+          <label className="block" htmlFor="name">
+            Password
+          </label>
+          <input type="checkbox" />
+        </div>
       </div>
-      {/* <select>
-        <option>one</option>
-        <option>two</option>
-        <option>three</option>
-        <option>four</option>
-      </select> */}
       {/* <button type="submit">Submit</button> */}
     </form>
   );
