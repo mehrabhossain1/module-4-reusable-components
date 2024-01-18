@@ -1,4 +1,5 @@
-import NormalForm from './components/NormalForm/NormalForm';
+import { FieldValues, useForm } from 'react-hook-form';
+import { Form, FormSection, FormSubmit } from './components/ReusableForm';
 import Container from './components/ui/Container';
 
 function App() {
@@ -13,9 +14,40 @@ function App() {
   //   console.log("clicked");
   // };
 
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data: FieldValues) => {
+    console.log(data);
+  };
+
   return (
     <Container>
-      <NormalForm />
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormSection>
+          <div className="w-full max-w-md">
+            <label className="block" htmlFor="name">
+              Name
+            </label>
+            <input
+              className="w-full"
+              type="text"
+              id="name"
+              {...register('name')}
+            />
+            {errors.name && (
+              <span className="text-xs text-red-500">
+                {errors.name.message}
+              </span>
+            )}
+          </div>
+        </FormSection>
+        <FormSubmit />
+      </Form>
+      {/* <NormalForm /> */}
 
       {/* <div className="relative h-screen w-full flex justify-center items-center">
         <Button
